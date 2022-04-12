@@ -5,7 +5,7 @@ Home: https://github.com/MathsCell/nlsic
 
 Package license: GPL-2.0-only
 
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/r-nlsic-feedstock/blob/master/LICENSE.txt)
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/r-nlsic-feedstock/blob/main/LICENSE.txt)
 
 Summary: We solve non linear least squares problems with optional equality and/or inequality constraints. Non linear iterations are globalized with back-tracking method. Linear problems are solved by dense QR decomposition from 'LAPACK' which can limit the size of treated problems. On the other side, we avoid condition number degradation which happens in classical quadratic programming approach. Inequality constraints treatment on each non linear iteration is based on 'NNLS' method (by Lawson and Hanson). We provide an original function 'lsi_ln' for solving linear least squares problem with inequality constraints in least norm sens. Thus if Jacobian of the problem is rank deficient a solution still can be provided. However, truncation errors are probable in this case. Equality constraints are treated by using a basis of Null-space. User defined function calculating residuals must return a list having residual vector (not their squared sum) and Jacobian. If Jacobian is not in the returned list, package 'numDeriv' is used to calculated finite difference version of Jacobian. The 'NLSIC' method was fist published in Sokol et al. (2012) <doi:10.1093/bioinformatics/btr716>.
 
@@ -15,8 +15,8 @@ Current build status
 
 <table><tr><td>All platforms:</td>
     <td>
-      <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=15036&branchName=master">
-        <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/r-nlsic-feedstock?branchName=master">
+      <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=15036&branchName=main">
+        <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/r-nlsic-feedstock?branchName=main">
       </a>
     </td>
   </tr>
@@ -39,16 +39,41 @@ conda config --add channels conda-forge
 conda config --set channel_priority strict
 ```
 
-Once the `conda-forge` channel has been enabled, `r-nlsic` can be installed with:
+Once the `conda-forge` channel has been enabled, `r-nlsic` can be installed with `conda`:
 
 ```
 conda install r-nlsic
 ```
 
-It is possible to list all of the versions of `r-nlsic` available on your platform with:
+or with `mamba`:
+
+```
+mamba install r-nlsic
+```
+
+It is possible to list all of the versions of `r-nlsic` available on your platform with `conda`:
 
 ```
 conda search r-nlsic --channel conda-forge
+```
+
+or with `mamba`:
+
+```
+mamba search r-nlsic --channel conda-forge
+```
+
+Alternatively, `mamba repoquery` may provide more information:
+
+```
+# Search all versions available on your platform:
+mamba repoquery search r-nlsic --channel conda-forge
+
+# List packages depending on `r-nlsic`:
+mamba repoquery whoneeds r-nlsic --channel conda-forge
+
+# List dependencies of `r-nlsic`:
+mamba repoquery depends r-nlsic --channel conda-forge
 ```
 
 
@@ -66,10 +91,12 @@ for each of the installable packages. Such a repository is known as a *feedstock
 A feedstock is made up of a conda recipe (the instructions on what and how to build
 the package) and the necessary configurations for automatic building using freely
 available continuous integration services. Thanks to the awesome service provided by
-[CircleCI](https://circleci.com/), [AppVeyor](https://www.appveyor.com/)
-and [TravisCI](https://travis-ci.com/) it is possible to build and upload installable
-packages to the [conda-forge](https://anaconda.org/conda-forge)
-[Anaconda-Cloud](https://anaconda.org/) channel for Linux, Windows and OSX respectively.
+[Azure](https://azure.microsoft.com/en-us/services/devops/), [GitHub](https://github.com/),
+[CircleCI](https://circleci.com/), [AppVeyor](https://www.appveyor.com/),
+[Drone](https://cloud.drone.io/welcome), and [TravisCI](https://travis-ci.com/)
+it is possible to build and upload installable packages to the
+[conda-forge](https://anaconda.org/conda-forge) [Anaconda-Cloud](https://anaconda.org/)
+channel for Linux, Windows and OSX respectively.
 
 To manage the continuous integration and simplify feedstock maintenance
 [conda-smithy](https://github.com/conda-forge/conda-smithy) has been developed.
