@@ -1,4 +1,4 @@
-{% set version = "1.0.2" %}
+{% set version = "1.0.4" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,11 +10,11 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/nlsic_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/nlsic/nlsic_{{ version }}.tar.gz
-  sha256: 037e1e58c02e693090b7943e7de9af55dfdd9457f4f99560673b5144466156b7
+  sha256: d819385b9326471a256469cc8eacce777649d36496743db9f90b6d1ff0afbb0b
 
 build:
   merge_build_host: true  # [win]
-  number: 2
+  number: 0
   noarch: generic
   rpaths:
     - lib/R/lib/
