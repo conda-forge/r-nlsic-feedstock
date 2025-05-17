@@ -25,9 +25,11 @@ requirements:
   host:
     - r-base
     - r-nnls
+    - r-dotty
   run:
     - r-base
     - r-nnls
+    - r-dotty
 
 test:
   commands:
