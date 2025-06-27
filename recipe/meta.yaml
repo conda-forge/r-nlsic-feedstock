@@ -1,4 +1,4 @@
-{% set version = "1.1.0" %}
+{% set version = "1.1.1" %}
 {% set posix = 'm2-' if win else '' %}
 
 package:
@@ -9,7 +9,7 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/nlsic_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/nlsic/nlsic_{{ version }}.tar.gz
-  sha256: e2fead0db23fb0ca1485358661f8e7d39d7c8a3cf4f98758e7b4e8aed340a863
+  sha256: 89bf3dc366894e23c98a139fb186db7fbf18fee853599cdf8573957189438ae5
 
 build:
   number: 0
