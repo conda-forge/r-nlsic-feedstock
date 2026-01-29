@@ -26,10 +26,12 @@ requirements:
     - r-base
     - r-nnls
     - r-dotty
+    - r-glue
   run:
     - r-base
     - r-nnls
     - r-dotty
+    - r-glue
 
 test:
   commands:
