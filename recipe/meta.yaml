@@ -1,4 +1,4 @@
-{% set version = "1.1.1" %}
+{% set version = "1.2.0" %}
 {% set posix = 'm2-' if win else '' %}
 
 package:
@@ -9,10 +9,10 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/nlsic_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/nlsic/nlsic_{{ version }}.tar.gz
-  sha256: 89bf3dc366894e23c98a139fb186db7fbf18fee853599cdf8573957189438ae5
+  sha256: d88ab35fb771f7f0959d0500cbbc7b106fb93e26c44cb34898878b3aced1b809
 
 build:
-  number: 1
+  number: 0
   noarch: generic
   rpaths:
     - lib/R/lib/
@@ -26,10 +26,12 @@ requirements:
     - r-base
     - r-nnls
     - r-dotty
+    - r-glue
   run:
     - r-base
     - r-nnls
     - r-dotty
+    - r-glue
 
 test:
   commands:
@@ -39,10 +41,10 @@ test:
 about:
   home: https://github.com/MathsCell/nlsic
   license: GPL-2.0-only
-  summary: We solve non linear least squares problems with optional equality and/or inequality constraints. Non linear iterations are globalized with back-tracking method. Linear problems are solved by dense QR decomposition from 'LAPACK' which can limit the size of treated problems. On the other side, we avoid condition
-    number degradation which happens in classical quadratic programming approach. Inequality constraints treatment on each non linear iteration is based on 'NNLS' method (by Lawson and Hanson). We provide an original function 'lsi_ln' for solving linear least squares problem with inequality constraints in least norm sens.
-    Thus if Jacobian of the problem is rank deficient a solution still can be provided. However, truncation errors are probable in this case. Equality constraints are treated by using a basis of Null-space. User defined function calculating residuals must return a list having residual vector (not their squared sum) and Jacobian.
-    If Jacobian is not in the returned list, package 'numDeriv' is used to calculated finite difference version of Jacobian. The 'NLSIC' method was fist published in Sokol et al. (2012) <doi:10.1093/bioinformatics/btr716>.
+  summary: We solve non linear least squares problems with optional equality and/or inequality constraints. Non linear iterations are globalized with back-tracking method. Linear problems are solved by dense QR decomposition from 'LAPACK' which can limit the size of treated problems. On the other side, we avoid 
+    condition number degradation which happens in classical quadratic programming approach. Inequality constraints treatment on each non linear iteration is based on 'NNLS' method (by Lawson and Hanson). We provide an original function 'lsi_ln' for solving linear least squares problem with inequality constraints in 
+    least norm sens. Thus if Jacobian of the problem is rank deficient a solution still can be provided. However, truncation errors are probable in this case. Equality constraints are treated by using a basis of Null-space. User defined function calculating residuals must return a list having residual vector (not their
+    squared sum) and Jacobian. If Jacobian is not in the returned list, package 'numDeriv' is used to calculated finite difference version of Jacobian. The 'NLSIC' method was fist published in Sokol et al. (2012) <doi:10.1093/bioinformatics/btr716>.
   license_family: GPL2
   license_file:
     - {{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-2
